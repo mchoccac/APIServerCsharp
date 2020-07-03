@@ -11,7 +11,7 @@ No se uso https solo fue por http.
 Si se va ejecutar en la misma maquina se puede usar localhost:port
 
 ###### Video tutorial 
-1. Video para Implementacion del proyecto de IIS, aunque cabe recordar que  si se usa la misma maquina se puede usar localhost:port
+1. Video para Implementacion del proyecto de IIS, aunque cabe recordar que  si se usa la misma maquina se puede usar localhost:port,en mi caso me conecte por medio de una ip.
 ```
 video.mkv
 ```

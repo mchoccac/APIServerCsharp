@@ -2,6 +2,7 @@
 using System.Net;
 using System.Web.Http;
 using ClientAPi.Models;
+using System.Web;
 using ClientAPi.App_Code;
 
 namespace ClientAPi.Controllers
@@ -47,7 +48,7 @@ namespace ClientAPi.Controllers
 
         }
 
-
+        public System.Collections.Specialized.NameValueCollection QueryString { get; }
         /// <summary>
         /// 
         /// he GET /message/<id> route expects no parameters (besides the authentication headers) and proceeds to do the following:
@@ -57,10 +58,18 @@ namespace ClientAPi.Controllers
         /// </summary>
         [HttpGet]
         [Route("id")]
-        public IHttpActionResult id(ClsToken login)
+        public IHttpActionResult id(string X_Signature, string X_Key,  string Id)
         {
+            ClsToken login = new ClsToken();
+            login.X_Signature = X_Signature;
+            login.X_Key = X_Key;
+            login.Id = Id;
+
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+
+
 
             Code_credencial usuario = new Code_credencial();
             var ftusuario = new ClsCredencial();
@@ -72,6 +81,7 @@ namespace ClientAPi.Controllers
                 var mensaje = new ClsMessage();
                 mensaje.Message = usuario.getIdentiﬁerMessage(login);
                 return Ok(mensaje);
+
             }
             return StatusCode(HttpStatusCode.Forbidden);
             
@@ -90,8 +100,13 @@ namespace ClientAPi.Controllers
         /// </summary>
         [HttpGet]
         [Route("tag")]
-        public IHttpActionResult tag(ClsToken login)
+        public IHttpActionResult tag(string X_Signature, string X_Key, string Tag)
         {
+            ClsToken login = new ClsToken();
+            login.X_Signature = X_Signature;
+            login.X_Key = X_Key;
+            login.Tag = Tag;
+
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 

@@ -28,12 +28,12 @@ namespace ClientAPi.App_Code
                 MemoryCache.Default.AddOrGetExisting(
                 tangs.X_Key + tangs.Id,
                 tangs.Id + "#" + tangs.Message,
-                DateTime.Now.AddMinutes(10));
+                DateTime.Now.AddMinutes(60));
             }else {
                 MemoryCache.Default.AddOrGetExisting(
                 tangs.X_Key + tangs.Id,
                 tangs.Id + "#" + tangs.Message,
-                DateTime.Now.AddMinutes(10));
+                DateTime.Now.AddMinutes(60));
             }
 
 

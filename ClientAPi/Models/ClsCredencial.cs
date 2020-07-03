@@ -4,7 +4,7 @@ namespace ClientAPi.Models
 {
     public class ClsCredencial
     {
-        [Required]
+        //[Required]
         public string Id { get; set; }
 
         [Required]

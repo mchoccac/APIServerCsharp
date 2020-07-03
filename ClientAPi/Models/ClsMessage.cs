@@ -2,11 +2,11 @@
 
 namespace ClientAPi.Models 
 {
-    public class ClsMessageTags : ClsCredencial
+    public class ClsMessage
     {
         [Required]
         public string Message { set; get; }
-
-        public string Tag { set; get; }
+        [Required]
+        public string Id { get; set; }
     }
 }
